@@ -4,4 +4,33 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 16px;
+}
+
 /*? Gameboard style */
+
+#gameBoard{
+    display: grid;
+    width: 80vmin;
+    height: 80vmin;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.marker{
+    cursor: pointer;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: normal 9vmin helvetica,sans-serif;
+}
+
+.marker:hover{
+    background-color: rgb(0, 101, 252)
+}
