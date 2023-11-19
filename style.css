@@ -18,8 +18,8 @@ body{
     display: grid;
     width: 80vmin;
     height: 80vmin;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .cell{
