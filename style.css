@@ -1,32 +1,120 @@
+/*? Geral config */
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 16px;
+:root{
+    --player1: #940c27;
+    --player2: #483d8b;
+}
+
+/*? Player turn display style */
+
+#player-turn{
+    color: #ffffff;
+    font: bold 3vmin 'Segoe UI',sans-serif;
+    text-align: center;
+    position: relative;
+    top: 20px;
 }
 
 /*? Gameboard style */
 
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    font-size: 16px;
+}
+
 #gameBoard{
     display: grid;
-    width: 80vmin;
-    height: 80vmin;
+    width: 70vmin;
+    height: 70vmin;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
 .cell{
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font: normal 9vmin helvetica,sans-serif;
+    font: normal 9vmin 'Segoe UI',sans-serif;
+    color: white;
+}
+
+/*? Tic tac toe Grid style */
+
+#upper-left-diagonal{
+    border-left: none;
+    border-top: none;
+}
+
+#upper{
+    border-top:none;
+}
+
+#upper-right-diagonal{
+    border-right: none;
+    border-top: none;
+}
+
+#left{
+    border-left: none;
+}
+
+#right{
+    border-right: none;
+}
+
+#bottom-left-diagonal{
+    border-bottom: none;
+    border-left: none;
+}
+
+#bottom{
+    border-bottom: none;
+}
+
+#bottom-right-diagonal{
+    border-right: none;
+    border-bottom: none;
+}
+
+/*? Win Screen style */
+
+#win-screen{
+    display: none;
+    flex-direction: column;
+    height: 50vmin;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 11;
+    width: 100%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    animation: win 1s forwards;
+}
+
+@keyframes win{
+    0%{
+        top: -20%
+    }
+
+    100%{
+        top: 50%;
+    }
+}
+
+#player-win{
+    color: #ffffff;
+    font: bold 5vmin 'Segoe UI',sans-serif;
+    text-align: center;
+    margin-top: 50px;
 }

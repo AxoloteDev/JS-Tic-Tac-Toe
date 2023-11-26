@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Tick Tac Toy</title>
+    <title>JS Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="gameBoard">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+    <div id="win-screen">
+        <h1 id="player-win"></h1>
     </div>
+    <h1 id="player-turn"></h1>
+    <main>
+        <div id="gameBoard">
+            <div id="upper-left-diagonal" class="cell"></div>
+            <div id="upper" class="cell"></div>
+            <div id="upper-right-diagonal" class="cell"></div>
+            <div id="left" class="cell"></div>
+            <div class="cell"></div>
+            <div id="right" class="cell"></div>
+            <div id="bottom-left-diagonal" class="cell"></div>
+            <div id="bottom" class="cell"></div>
+            <div id="bottom-right-diagonal" class="cell"></div>
+        </div>
+    </main>
     <script defer src="/script.js"></script>
 </body>
 </html>
