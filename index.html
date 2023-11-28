@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="block-game"></div>
     <div id="win-screen">
         <h1 id="player-win"></h1>
+        <img id="reload" src="/reload.png" alt="Re-load game">
     </div>
-    <h1 id="player-turn"></h1>
+    <div id="scoreboard">
+        <span class="score" id="player-one-score"></span>
+        <h1 id="player-turn"></h1>
+        <span class="score" id="player-two-score"></span>
+    </div>
     <main>
         <div id="gameBoard">
             <div id="upper-left-diagonal" class="cell"></div>

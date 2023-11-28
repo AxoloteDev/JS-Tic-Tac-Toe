@@ -1,13 +1,28 @@
 const body = document.querySelector('body');
+
 const turn = document.querySelector('#player-turn');
+const playerOneScore = document.querySelector('#player-one-score');
+const playerTwoScore = document.querySelector('#player-two-score');
+
 const winScreen = document.querySelector('#win-screen');
 const playerWin = document.querySelector('#player-win');
+const reload = document.querySelector('#reload');
+
 const gameBoard = document.querySelector("#gameBoard");
 let cells = gameBoard.querySelectorAll(".cell");
 
+const blockGame = document.querySelector('#block-game');
+
 let isPlayerOneTurn = true;
-turn.innerHTML = 'Player 1 Turn';
+let playerOne = 0;
+let playerTwo = 0;
+
+turn.innerHTML = 'Player 1 Time';
+
 body.style.backgroundColor = "#483d8b";
+
+playerOneScore.innerHTML = playerOne;
+playerTwoScore.innerHTML = playerTwo;
 
 cells.forEach((cell)=>{
     cell.addEventListener('click', ()=>{
@@ -15,7 +30,7 @@ cells.forEach((cell)=>{
             if(cell.innerHTML === ''){
                 cell.innerHTML = "X";
                 body.style.backgroundColor = "#940c27";
-                turn.innerHTML = 'Player 2 Turn';
+                turn.innerHTML = 'Player 2 Time';
             } else{
                 return null;
             }
@@ -28,7 +43,7 @@ cells.forEach((cell)=>{
                 return null;
             }
             isPlayerOneTurn = true;
-            turn.innerHTML = 'Player 1 Turn';
+            turn.innerHTML = 'Player 1 Time';
         }
         
         if (isWin()) {
@@ -36,11 +51,17 @@ cells.forEach((cell)=>{
             isPlayerOneTurn ? winScreen.style.backgroundColor = '#df1c43'
              : winScreen.style.backgroundColor = '#5b44f1';
 
-            isPlayerOneTurn ? playerWin.innerHTML = "Player 2 Win" : playerWin.innerHTML = "Player 1 win"; 
+            isPlayerOneTurn ? playerWin.innerHTML = "Player 2 Wins" : playerWin.innerHTML = "Player 1 Wins"; 
+
+            isPlayerOneTurn? playerTwo++ : playerOne++;
+
+            isPlayerOneTurn? playerTwoScore.innerHTML = playerTwo : playerOneScore.innerHTML = playerOne;
 
             isPlayerOneTurn ?  body.style.backgroundColor = "#940c27" :  body.style.backgroundColor = "#483d8b";
+
+            blockGame.style.display = 'block';
         } else if (isBoardFull()) {
-            alert('Empate!');
+            reloadGame();
         }
     });
 });
@@ -73,4 +94,17 @@ function isBoardFull(){
         }
     }
     return true;
+}
+
+reload.addEventListener('click', reloadGame);
+
+function reloadGame(){
+    cells.forEach((cell)=>{
+        cell.innerHTML = "";
+    })
+    winScreen.style.display = 'none';
+    isPlayerOneTurn = true;
+    turn.innerHTML = 'Player 1 Time';
+    body.style.backgroundColor = "#483d8b"
+    blockGame.style.display = 'none';
 }

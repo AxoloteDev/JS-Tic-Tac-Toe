@@ -13,12 +13,31 @@
 
 /*? Player turn display style */
 
+#scoreboard{
+    display: flex;
+    position: relative;
+    top: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 #player-turn{
     color: #ffffff;
     font: bold 3vmin 'Segoe UI',sans-serif;
     text-align: center;
-    position: relative;
-    top: 20px;
+}
+
+.score{
+    font: bold 3vmin 'Segoe UI',sans-serif;
+}
+
+#player-one-score{
+    color: #7f6eec;
+}
+
+#player-two-score{
+    color: #df1c43;
 }
 
 /*? Gameboard style */
@@ -92,7 +111,7 @@ main{
 #win-screen{
     display: none;
     flex-direction: column;
-    height: 50vmin;
+    height: 40vmin;
     position: fixed;
     background-color: #ffffff;
     z-index: 11;
@@ -100,6 +119,8 @@ main{
     top: 50%;
     transform: translate(0%, -50%);
     animation: win 1s forwards;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes win{
@@ -116,5 +137,21 @@ main{
     color: #ffffff;
     font: bold 5vmin 'Segoe UI',sans-serif;
     text-align: center;
-    margin-top: 50px;
+}
+
+#win-screen > img{
+    height: 10vmin;
+    margin-top: 5vmin;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/*? Block Game */
+
+#block-game{
+    display: none;
+    height: 100vh;
+    background-color: transparent;
+    position: static;
+    z-index: 12;
 }
